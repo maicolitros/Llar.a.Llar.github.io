@@ -28,13 +28,14 @@
         "categoria": "Electronica"
     },
     {
-        "nombre": "Juego de sábanas",
-        "descripcion": "Confortable y suave para tu dormitorio.",
-        "precio": "$50",
-        "imagen": "https://via.placeholder.com/200",
+        "nombre": "Canapes",
+        "descripcion": "Adaptable a tus medidas y gustos desde 90x190",
+        "precio": "170.00€",
+        "imagen": "https://scontent.fbcn7-3.fna.fbcdn.net/v/t39.30808-6/594872785_904113868635248_2731754222289943570_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=AvV1PpLisM8Q7kNvwFgggPy&_nc_oc=AdlioSTQv3sp_zKGIM0BqUqEmFoTMlOj1Si2I3rM-YlZfZsI3RHya6rQcFlTQr0YeyA&_nc_zt=23&_nc_ht=scontent.fbcn7-3.fna&_nc_gid=jm61pQNk0Uv5Hlgz3Yu6wg&oh=00_AflnuTTr-W2cn1H6Zii1KnQOChIZ4KtCc9gfOd4tPdzsEA&oe=693F25D5",
         "categoria": "Dormitorio"
     }
 ]
+
 
 
 
