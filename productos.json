@@ -16,7 +16,7 @@
     {
         "nombre": "Armario grande 200x200x50cm",
         "descripcion": "Amplio y elegante, le dara vida a tu habitacion.",
-        "precio": 270.00€",
+        "precio": "270.00€",
         "imagen": "https://scontent.fbcn7-3.fna.fbcdn.net/v/t39.30808-6/595361045_904109108635724_2675985047739638770_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=o2v6d9MDnu0Q7kNvwGCGP8u&_nc_oc=Adn8eFwuEJLM3EnGfKk7xh8fWrm7UYxSFrjEy_uU3Vrh9njOCbr1OmQ8EQl2Fphga3Y&_nc_zt=23&_nc_ht=scontent.fbcn7-3.fna&_nc_gid=nZxZ_oM7Cb_C06BsaPjOlw&oh=00_AflQSUMRcO_B_7D9lNRXT8zS1hGlc0cU_edXVhyz8qCusg&oe=693F4DF4",
         "categoria": "Armario"
     },
@@ -35,6 +35,7 @@
         "categoria": "Dormitorio"
     }
 ]
+
 
 
 
