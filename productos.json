@@ -3,7 +3,7 @@
         "nombre": "Armario Pequeño 200x100x50",
         "descripcion": "Ideal para habitaciones pequeñas.",
         "precio": "185.00€",
-        "imagen": "https://th.bing.com/th?id=OPEC.PAjQXLDWC%2f9brA474C474&w=160&h=220&c=17&pid=21.1&ucfimg=1",
+        "imagen": "https://scontent-bcn1-1.xx.fbcdn.net/v/t39.30808-6/597064026_904080168638618_6520863009815127943_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=sbUku3VEo7oQ7kNvwGaBiAQ&_nc_oc=AdneSHN0cV2EwxdcG-igYs7_5Xeh8VeXetC26998mc_PN40-qpTD0bUHWVkKiucdH3g&_nc_zt=23&_nc_ht=scontent-bcn1-1.xx&_nc_gid=atRUGHcb3Ssbg62IMXfU4w&oh=00_AfnhED_NLF3n1f0j7Ui0dFIpY-Wk2K25QDrQEaWzD2L2nw&oe=693F1A67",
         "categoria": "Sala"
     },
     {
@@ -21,4 +21,5 @@
         "categoria": "Dormitorio"
     }
 ]
+
 
