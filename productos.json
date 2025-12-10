@@ -1,5 +1,27 @@
 [
     {
+        "nombre": "Armario Amplio 200x200x50cm",
+        "descripcion": "Un elegante armario donde podra ir todas tus prendas sin problemar",
+        "precio": "3270.00€",
+        "categoria": "Armario",
+        "imagenes": [
+            { "url": "https://scontent.fbcn7-3.fna.fbcdn.net/v/t39.30808-6/595361045_904109108635724_2675985047739638770_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=o2v6d9MDnu0Q7kNvwGCGP8u&_nc_oc=Adn8eFwuEJLM3EnGfKk7xh8fWrm7UYxSFrjEy_uU3Vrh9njOCbr1OmQ8EQl2Fphga3Y&_nc_zt=23&_nc_ht=scontent.fbcn7-3.fna&_nc_gid=3vHGkXoZHfTt56z1yXfwRQ&oh=00_AfmZ9p_5Nj130-QH54Fbyx87COUEID7he6fXmN5w6OH5oQ&oe=693FBE74" },
+            { "url": "https://scontent.fbcn7-3.fna.fbcdn.net/v/t39.30808-6/597959685_904109075302394_4755427816773187267_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=MrNeR0RmfC8Q7kNvwEJqoQe&_nc_oc=AdkMMHMWBvusQN3k0Rmjnxt7PPPGlsNm8hxYaBH-O83wxl9aWZOFvrkM9cS80_2Uo6c&_nc_zt=23&_nc_ht=scontent.fbcn7-3.fna&_nc_gid=Pg9rdnYfyiWsp62ARyRUaA&oh=00_AfkXpNq-A3G_2KrRGCzHeDWN0OtRgCztr8bInTZmVLgTTg&oe=693FA9F4" },
+            { "url": "https://scontent.fbcn7-3.fna.fbcdn.net/v/t39.30808-6/595153214_904109071969061_7904566573761876083_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=IutRYZ891PEQ7kNvwEmYbEy&_nc_oc=Adn0OVteqPpTD3zg2hFFfYxVa010IxkFcNuzvscqkqWwz7YKxaD8rq6AdURA90l8_2M&_nc_zt=23&_nc_ht=scontent.fbcn7-3.fna&_nc_gid=eENEsd3y6datwfcu86qofQ&oh=00_AfnS4B-9kBc1lwzA2l6amcU6L8G0AE2qC1n18yhcmbzvnA&oe=693FCA71" },
+            { "url": "https://scontent.fbcn7-3.fna.fbcdn.net/v/t39.30808-6/596483339_904109138635721_7686792710419991830_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=L0FDUKJrVdgQ7kNvwEjjNit&_nc_oc=AdmF3E7v7SAihoNpQvCb6zicPznqV-NxLKiKXTugvsvEZBRygXcYAobSaAW4p4AEqTE&_nc_zt=23&_nc_ht=scontent.fbcn7-3.fna&_nc_gid=GZB7Shzvu7F2xRORM65FNQ&oh=00_AflVuNMUr4S99LP72g5EuxfTbMiw8GvNOfzy0b-DSD7AAA&oe=693FE08F" }
+        ]
+    },
+    {
+        "nombre": "Armario Pequeño",
+        "descripcion": "Ideal para habitaciones pequeñas",
+        "precio": "185€",
+        "categoria": "Armarios",
+        "imagenes": [
+            { "url": "img/armario/armario1.jpg", "descripcion": "Interior del armario" },
+            { "url": "img/armario/armario2.jpg", "descripcion": "Vista cerrada" }
+        ]
+    }
+      {
         "nombre": "Sofá Cómodo",
         "descripcion": "Perfecto para tu sala de estar",
         "precio": "300€",
@@ -20,3 +42,4 @@
         ]
     }
 ]
+
