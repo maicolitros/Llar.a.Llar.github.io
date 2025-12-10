@@ -5,31 +5,18 @@
         "precio": "300€",
         "categoria": "Sala",
         "imagenes": [
-            {
-                "url": "img/sofa/sofa1.jpg",
-                "descripcion": "Vista frontal"
-            },
-            {
-                "url": "img/sofa/sofa2.jpg",
-                "descripcion": "Vista lateral"
-            }
+            { "url": "img/sofa/sofa1.jpg", "descripcion": "Vista frontal" },
+            { "url": "img/sofa/sofa2.jpg", "descripcion": "Vista lateral" }
         ]
     },
-
     {
         "nombre": "Armario Pequeño",
         "descripcion": "Ideal para habitaciones pequeñas",
         "precio": "185€",
         "categoria": "Armarios",
         "imagenes": [
-            {
-                "url": "img/armario/armario1.jpg",
-                "descripcion": "Interior del armario"
-            },
-            {
-                "url": "img/armario/armario2.jpg",
-                "descripcion": "Vista cerrada"
-            }
+            { "url": "img/armario/armario1.jpg", "descripcion": "Interior del armario" },
+            { "url": "img/armario/armario2.jpg", "descripcion": "Vista cerrada" }
         ]
     }
 ]
