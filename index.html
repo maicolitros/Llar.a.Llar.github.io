@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Llar a Llar - Catálogo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llar a Llar</title>
 
-    <!-- Estilos -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Lightbox -->
@@ -13,21 +18,55 @@
 </head>
 <body>
 
-    <header>
-        <h1>Catálogo de Productos</h1>
-    </header>
+<header>
+    <h1>¡Bienvenido a Llar a Llar!</h1>
+    <nav>
+        <a href="#sobre-mi">Sobre nosotros</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
 
-    <main>
-        <div id="productos-container" class="grid-productos"></div>
-    </main>
+<section id="sobre-mi">
+    <h2>Sobre nosotros</h2>
+    <p>¡Hola, Bienvenido a Llar a Llar! Contamos con gran variedad de artículos para el hogar.</p>
+    <img src="https://via.placeholder.com/150" alt="Foto de presentación">
+</section>
 
-    <footer>
-        © 2025 Llar a Llar
-    </footer>
+<section id="catalogo">
+    <h2>Catálogo de Productos</h2>
+    <input type="text" id="busqueda" placeholder="Buscar producto..." style="width:80%; max-width:300px;">
+    <select id="filtro">
+        <option value="">Todas las categorías</option>
+    </select>
+    <div class="productos-container" id="productos-container"></div>
+</section>
 
-    <!-- Scripts -->
-    <script src="js/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+<section id="contacto">
+    <h2>Contacto</h2>
+    <p>Escríbeme un mensaje:</p>
+    <form>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="5"></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+</section>
 
+<footer>
+    <p>© 2025 Llar a Llar. Todos los derechos reservados.</p>
+    <p>Síguenos en: 
+        <a href="#">Facebook</a> |
+        <a href="#">Instagram</a> |
+        <a href="#">WhatsApp</a>
+    </p>
+</footer>
+
+<!-- JS -->
+<script src="js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 </body>
 </html>
