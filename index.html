@@ -84,7 +84,7 @@
 <section id="sobre-mi">
   <h2>Sobre nosotros</h2>
   <p>¡Hola, Bienvenido a Llar a Llar! Contamos con gran variedad de artículos para el hogar.</p>
-  <img src="https://via.placeholder.com/150" alt="Foto de presentación">
+  <img src="https://scontent.fbcn7-2.fna.fbcdn.net/v/t39.30808-6/596935336_904405458606089_456510459777651955_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=n8sBfoU-U_wQ7kNvwGoB05d&_nc_oc=Adn4_kAyidZLD5iEyxYTibJlZwWjjI0dXs9oQiTVATHHGOdpae_dpwbJnaW4mAyX3-s&_nc_zt=23&_nc_ht=scontent.fbcn7-2.fna&_nc_gid=Cjgcc49ReN5xm5jOJTi45g&oh=00_AfmSGn1T6wsMXbe3U15MYSzCw3gI4H5fAnSJ_svmVcqG6Q&oe=693FCEB6" alt="Foto de presentación">
 </section>
 
 <section id="catalogo">
@@ -98,7 +98,6 @@
   <h2>Contacto</h2>
   <p>Escríbeme un mensaje:</p>
 
-  <!-- FORMULARIO via FormSubmit (envía a tu gmail) -->
   <form action="https://formsubmit.co/maicolvelez999@gmail.com" method="POST">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" required>
@@ -109,12 +108,8 @@
     <label for="mensaje">Mensaje:</label>
     <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
 
-    <!-- FormSubmit options -->
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_template" value="table">
-    <!-- Optional: redirect to thank-you page -->
-    <!-- <input type="hidden" name="_next" value="https://tu-sitio/gracias.html"> -->
-
     <button type="submit">Enviar</button>
   </form>
 </section>
@@ -141,7 +136,6 @@
 </a>
 
 <script>
-/* ===== carga dinámicamente productos desde productos.json ===== */
 let productosGlobal = [];
 const contenedor = document.querySelector('.productos-container');
 const busquedaInput = document.getElementById('busqueda');
@@ -164,31 +158,25 @@ function mostrarProductos(productos){
   productos.forEach(prod => {
     const card = document.createElement('div');
     card.className = 'producto-card';
-
-    // whatsapp link con imagen incluida en el texto (no es adjuntar, solo URL en el mensaje)
     const textoWsp = `¡Hola buen día! Me gustaría más información sobre este artículo: ${prod.nombre}. Imagen: ${prod.imagen}`;
     const wspLink = `https://wa.me/34643261975?text=${encodeURIComponent(textoWsp)}`;
 
     card.innerHTML = `
-      <img src="${prod.imagen}" alt="${prod.nombre}" data-nombre="${escapeHtml(prod.nombre)}" />
-      <h3>${escapeHtml(prod.nombre)}</h3>
-      <p>${escapeHtml(prod.descripcion)}</p>
-      <p class="precio">${escapeHtml(prod.precio)}</p>
-      <p><em>${escapeHtml(prod.categoria)}</em></p>
+      <img src="${prod.imagen}" alt="${prod.nombre}" />
+      <h3>${prod.nombre}</h3>
+      <p>${prod.descripcion}</p>
+      <p class="precio">${prod.precio}</p>
+      <p><em>${prod.categoria}</em></p>
       <a class="btn-wsp" href="${wspLink}" target="_blank" rel="noopener">
         <button>Me interesa</button>
       </a>
     `;
-
-    // al clicar la imagen, abrimos lightbox con la galería del producto
     const img = card.querySelector('img');
     img.addEventListener('click', () => abrirLightbox(prod));
-
     contenedor.appendChild(card);
   });
 }
 
-/* ===== filtrado ===== */
 function filtrarProductos(){
   const texto = busquedaInput.value.toLowerCase();
   const cat = filtroSelect.value;
@@ -211,7 +199,7 @@ function generarCategorias(productos){
   });
 }
 
-/* ====== Lightbox ====== */
+/* ===== Lightbox multi-imagen ===== */
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const thumbsContainer = document.getElementById('galeria-thumbs');
@@ -223,60 +211,43 @@ let galeriaActual = [];
 let indexActual = 0;
 
 function abrirLightbox(producto){
-  // si producto.galeria existe y no vacío, la usamos; si no, usamos imagen principal
-  galeriaActual = Array.isArray(producto.galeria) && producto.galeria.length > 0 ? producto.galeria : [producto.imagen];
+  galeriaActual = Array.isArray(producto.galeria) && producto.galeria.length>0 ? producto.galeria : [producto.imagen];
   indexActual = 0;
   actualizarLightbox();
-  lightbox.style.display = 'flex';
+  lightbox.style.display='flex';
   lightbox.setAttribute('aria-hidden','false');
 }
 
 function actualizarLightbox(){
   lightboxImg.src = galeriaActual[indexActual];
-  // thumbs
-  thumbsContainer.innerHTML = '';
-  galeriaActual.forEach((src,i) => {
-    const t = document.createElement('img');
-    t.src = src;
-    if(i === indexActual) t.classList.add('selected');
-    t.addEventListener('click', () => {
-      indexActual = i;
-      actualizarLightbox();
-    });
+  thumbsContainer.innerHTML='';
+  galeriaActual.forEach((src,i)=>{
+    const t=document.createElement('img');
+    t.src=src;
+    if(i===indexActual) t.classList.add('selected');
+    t.addEventListener('click',()=>{ indexActual=i; actualizarLightbox(); });
     thumbsContainer.appendChild(t);
   });
 }
 
-cerrarBtn.addEventListener('click', () => {
-  lightbox.style.display = 'none';
+cerrarBtn.addEventListener('click',()=>{
+  lightbox.style.display='none';
   lightbox.setAttribute('aria-hidden','true');
 });
-flechaIzq.addEventListener('click', () => {
-  indexActual = (indexActual - 1 + galeriaActual.length) % galeriaActual.length;
+flechaIzq.addEventListener('click',()=>{
+  indexActual=(indexActual-1+galeriaActual.length)%galeriaActual.length;
   actualizarLightbox();
 });
-flechaDer.addEventListener('click', () => {
-  indexActual = (indexActual + 1) % galeriaActual.length;
+flechaDer.addEventListener('click',()=>{
+  indexActual=(indexActual+1)%galeriaActual.length;
   actualizarLightbox();
 });
-// cerrar al clickear fuera del contenido
-lightbox.addEventListener('click', (e) => {
-  if(e.target === lightbox) {
-    lightbox.style.display = 'none';
+lightbox.addEventListener('click',(e)=>{
+  if(e.target===lightbox){
+    lightbox.style.display='none';
     lightbox.setAttribute('aria-hidden','true');
   }
 });
-
-/* ===== util ===== */
-function escapeHtml(text){
-  if(!text) return '';
-  return text
-    .replaceAll('&','&amp;')
-    .replaceAll('<','&lt;')
-    .replaceAll('>','&gt;')
-    .replaceAll('"','&quot;')
-    .replaceAll("'",'&#039;');
-}
 </script>
 
 </body>
