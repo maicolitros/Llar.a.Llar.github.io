@@ -1,55 +1,69 @@
-document.addEventListener("DOMContentLoaded", () => {
-    cargarProductos();
-});
+let productosGlobal = [];
 
-async function cargarProductos() {
-    try {
-        const respuesta = await fetch("productos.json");
-        const productos = await respuesta.json();
+const contenedor = document.getElementById('productos-container');
+const busquedaInput = document.getElementById('busqueda');
+const filtroSelect = document.getElementById('filtro');
 
-        const contenedor = document.getElementById("productos-container");
-        contenedor.innerHTML = "";
+fetch('productos.json')
+    .then(response => response.json())
+    .then(productos => {
+        productosGlobal = productos;
+        generarCategorias(productosGlobal);
+        mostrarProductos(productosGlobal);
+    });
 
-        productos.forEach((prod, index) => {
-            const div = document.createElement("div");
-            div.classList.add("producto");
+function mostrarProductos(productos) {
+    contenedor.innerHTML = '';
+    productos.forEach((producto, index) => {
+        const card = document.createElement('div');
+        card.classList.add('producto-card');
 
-            const imagenPrincipal = prod.imagenes[0]?.url || "https://via.placeholder.com/200";
+        let imagenPrincipal = producto.imagenes[0]?.url || "https://via.placeholder.com/200";
+        let htmlImagenes = `<a href="${imagenPrincipal}" data-lightbox="galeria-${index}" data-title="${producto.nombre}"><img src="${imagenPrincipal}" alt="${producto.nombre}"></a>`;
 
-            div.innerHTML = `
-                <img src="${imagenPrincipal}" alt="${prod.nombre}">
-                <h3>${prod.nombre}</h3>
-                <p>${prod.descripcion}</p>
-                <p><strong>${prod.precio}</strong></p>
+        if(producto.imagenes.length > 1){
+            for(let i=1; i<producto.imagenes.length; i++){
+                htmlImagenes += `<a href="${producto.imagenes[i].url}" data-lightbox="galeria-${index}" data-title="${producto.imagenes[i].descripcion || producto.nombre}" style="display:none;"></a>`;
+            }
+        }
 
-                <a href="https://wa.me/34643261975?text=¡Hola!%20Me%20gustaría%20más%20información%20sobre:%20${encodeURIComponent(prod.nombre)}"
-                   class="boton-whatsapp" target="_blank">Consultar por WhatsApp</a>
-
-                <button onclick="abrirGaleria(${index})">Ver fotos</button>
-            `;
-
-            contenedor.appendChild(div);
-        });
-
-    } catch (e) {
-        console.error("Error cargando productos:", e);
-    }
+        card.innerHTML = `
+            ${htmlImagenes}
+            <h3>${producto.nombre}</h3>
+            <p>${producto.descripcion}</p>
+            <p><strong>${producto.precio}</strong></p>
+            <p><em>${producto.categoria}</em></p>
+            <button onclick="contactar('${producto.nombre}')">Me interesa</button>
+        `;
+        contenedor.appendChild(card);
+    });
 }
 
-function abrirGaleria(index) {
-    fetch("productos.json")
-        .then(res => res.json())
-        .then(productos => {
-            const prod = productos[index];
+function contactar(producto){
+    const nombreProducto = document.getElementById('mensaje');
+    nombreProducto.value = `¡Hola! Me gustaría más información sobre: ${producto}`;
+    window.location.href = "#contacto";
+}
 
-            prod.imagenes.forEach(img => {
-                const link = document.createElement("a");
-                link.href = img.url;
-                link.setAttribute("data-lightbox", "galeria-" + index);
-                link.setAttribute("data-title", img.descripcion || prod.nombre);
-                document.body.appendChild(link);
-            });
+function filtrarProductos(){
+    const texto = busquedaInput.value.toLowerCase();
+    const categoria = filtroSelect.value;
+    const filtrados = productosGlobal.filter(p => 
+        p.nombre.toLowerCase().includes(texto) &&
+        (categoria === '' || p.categoria === categoria)
+    );
+    mostrarProductos(filtrados);
+}
 
-            document.querySelector(`a[data-lightbox='galeria-${index}']`).click();
-        });
+busquedaInput.addEventListener('input', filtrarProductos);
+filtroSelect.addEventListener('change', filtrarProductos);
+
+function generarCategorias(productos){
+    const categorias = [...new Set(productos.map(p => p.categoria))];
+    categorias.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat;
+        option.textContent = cat;
+        filtroSelect.appendChild(option);
+    });
 }
