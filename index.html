@@ -1,73 +1,283 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Llar a Llar</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Llar a Llar</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family:'Roboto',sans-serif; margin:0; padding:0; background:#f9f9f9; color:#333; }
+  header { background:linear-gradient(to right,#6a11cb,#2575fc); color:white; padding:30px 20px; text-align:center; }
+  header h1 { margin:0; font-size:36px; }
+  nav { margin-top:15px; }
+  nav a { color:white; margin:0 15px; text-decoration:none; font-weight:700; transition:0.3s; }
+  nav a:hover { color:#ffdd59; }
 
-    <!-- Lightbox -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"/>
+  section { padding:60px 20px; text-align:center; }
+  #sobre-mi { background:#ecf0f1; }
+  #sobre-mi img { border-radius:50%; margin-top:20px; width:150px; height:150px; object-fit:cover; }
+
+  /* catálogo */
+  #catalogo input,#catalogo select { padding:10px; border-radius:8px; border:1px solid #ccc; margin-bottom:20px; font-size:16px; }
+  .productos-container { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-top:20px; }
+  .producto-card { background:white; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.2); padding:12px; width:240px; text-align:center; transition:transform .25s, box-shadow .25s; }
+  .producto-card img { width:100%; height:150px; object-fit:cover; border-radius:10px; cursor:pointer; }
+  .producto-card h3 { margin:12px 0 6px; font-size:18px; }
+  .producto-card p { margin:6px 0; font-size:14px; color:#444; }
+  .producto-card .precio { font-weight:700; margin-top:8px; font-size:16px; }
+  .producto-card a.btn-wsp { display:inline-block; margin-top:10px; text-decoration:none; }
+  .producto-card button { padding:10px 15px; background:#2575fc; color:white; border:none; border-radius:8px; font-weight:700; cursor:pointer; }
+  .producto-card:hover { transform:translateY(-6px); box-shadow:0 12px 30px rgba(0,0,0,0.25); }
+
+  /* contacto */
+  #contacto { background:#ecf0f1; }
+  form { display:inline-block; text-align:left; max-width:360px; width:100%; }
+  form label { font-weight:700; display:block; margin-top:8px; }
+  form input,form textarea { width:100%; padding:10px; margin-top:6px; margin-bottom:12px; border:1px solid #ccc; border-radius:8px; box-sizing:border-box; }
+  form button { padding:12px 25px; background:#2575fc; color:white; border:none; border-radius:8px; font-size:16px; cursor:pointer; }
+
+  footer { background:#2c3e50; color:white; text-align:center; padding:20px; }
+  footer a { color:#ffdd59; text-decoration:none; margin:0 10px; }
+
+  /* Lightbox */
+  .lightbox { display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; padding:30px; box-sizing:border-box; }
+  .lightbox .content { position:relative; max-width:1000px; width:100%; }
+  .lightbox img { max-width:100%; max-height:80vh; display:block; margin:0 auto; border-radius:8px; }
+  .lightbox .cerrar { position:absolute; top:-10px; right:-10px; font-size:36px; color:#fff; cursor:pointer; }
+  .lightbox .flecha { position:absolute; top:50%; transform:translateY(-50%); font-size:48px; color:#fff; cursor:pointer; padding:12px; user-select:none; }
+  .lightbox .izq { left:-50px; }
+  .lightbox .der { right:-50px; }
+  .galeria-thumbs { display:flex; gap:8px; justify-content:center; margin-top:10px; flex-wrap:wrap; }
+  .galeria-thumbs img { width:80px; height:60px; object-fit:cover; border-radius:6px; cursor:pointer; border:2px solid transparent; }
+  .galeria-thumbs img.selected { border-color:#2575fc; }
+
+  /* WhatsApp flotante */
+  .whatsapp-float { position:fixed; bottom:20px; right:20px; width:60px; height:60px; z-index:9999; }
+  .whatsapp-float img { width:100%; height:100%; border-radius:50%; box-shadow:0 4px 10px rgba(0,0,0,0.3); transition:0.25s; }
+  .whatsapp-float img:hover { transform:scale(1.06); }
+
+  @media (max-width:600px){
+    .producto-card { width:46%; }
+  }
+  @media (max-width:420px){
+    .producto-card { width:100%; }
+  }
+</style>
 </head>
 <body>
 
 <header>
-    <h1>¡Bienvenido a Llar a Llar!</h1>
-    <nav>
-        <a href="#sobre-mi">Sobre nosotros</a>
-        <a href="#catalogo">Catálogo</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
+  <h1>¡Bienvenido a Llar a Llar!</h1>
+  <nav>
+    <a href="#sobre-mi">Sobre nosotros</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 </header>
 
 <section id="sobre-mi">
-    <h2>Sobre nosotros</h2>
-    <p>¡Hola, Bienvenido a Llar a Llar! Contamos con gran variedad de artículos para el hogar.</p>
-    <img src="https://via.placeholder.com/150" alt="Foto de presentación">
+  <h2>Sobre nosotros</h2>
+  <p>¡Hola, Bienvenido a Llar a Llar! Contamos con gran variedad de artículos para el hogar.</p>
+  <img src="https://via.placeholder.com/150" alt="Foto de presentación">
 </section>
 
 <section id="catalogo">
-    <h2>Catálogo de Productos</h2>
-    <input type="text" id="busqueda" placeholder="Buscar producto..." style="width:80%; max-width:300px;">
-    <select id="filtro">
-        <option value="">Todas las categorías</option>
-    </select>
-    <div class="productos-container" id="productos-container"></div>
+  <h2>Catálogo de Productos</h2>
+  <input type="text" id="busqueda" placeholder="Buscar producto..." style="width:80%;max-width:300px;">
+  <select id="filtro"><option value="">Todas las categorías</option></select>
+  <div class="productos-container"></div>
 </section>
 
 <section id="contacto">
-    <h2>Contacto</h2>
-    <p>Escríbeme un mensaje:</p>
-    <form>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email">
-        <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje" rows="5"></textarea>
-        <button type="submit">Enviar</button>
-    </form>
+  <h2>Contacto</h2>
+  <p>Escríbeme un mensaje:</p>
+
+  <!-- FORMULARIO via FormSubmit (envía a tu gmail) -->
+  <form action="https://formsubmit.co/maicolvelez999@gmail.com" method="POST">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+    <!-- FormSubmit options -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <!-- Optional: redirect to thank-you page -->
+    <!-- <input type="hidden" name="_next" value="https://tu-sitio/gracias.html"> -->
+
+    <button type="submit">Enviar</button>
+  </form>
 </section>
 
 <footer>
-    <p>© 2025 Llar a Llar. Todos los derechos reservados.</p>
-    <p>Síguenos en: 
-        <a href="#">Facebook</a> |
-        <a href="#">Instagram</a> |
-        <a href="#">WhatsApp</a>
-    </p>
+  <p>© 2025 Llar a Llar. Todos los derechos reservados.</p>
+  <p>Síguenos en: <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="https://wa.me/34643261975" target="_blank">WhatsApp</a></p>
 </footer>
 
-<!-- Scripts -->
-<script src="js/script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <div class="content">
+    <span class="cerrar" title="Cerrar">&times;</span>
+    <img id="lightbox-img" src="" alt="Vista del producto">
+    <div class="galeria-thumbs" id="galeria-thumbs"></div>
+    <div class="flecha izq" id="flecha-izq">&#10094;</div>
+    <div class="flecha der" id="flecha-der">&#10095;</div>
+  </div>
+</div>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/34643261975" class="whatsapp-float" target="_blank" title="Contactar por WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<script>
+/* ===== carga dinámicamente productos desde productos.json ===== */
+let productosGlobal = [];
+const contenedor = document.querySelector('.productos-container');
+const busquedaInput = document.getElementById('busqueda');
+const filtroSelect = document.getElementById('filtro');
+
+fetch('productos.json')
+  .then(r => r.json())
+  .then(productos => {
+    productosGlobal = productos;
+    generarCategorias(productosGlobal);
+    mostrarProductos(productosGlobal);
+  })
+  .catch(err => {
+    console.error('Error cargando productos.json:', err);
+    contenedor.innerHTML = '<p>No se pudieron cargar los productos.</p>';
+  });
+
+function mostrarProductos(productos){
+  contenedor.innerHTML = '';
+  productos.forEach(prod => {
+    const card = document.createElement('div');
+    card.className = 'producto-card';
+
+    // whatsapp link con imagen incluida en el texto (no es adjuntar, solo URL en el mensaje)
+    const textoWsp = `¡Hola buen día! Me gustaría más información sobre este artículo: ${prod.nombre}. Imagen: ${prod.imagen}`;
+    const wspLink = `https://wa.me/34643261975?text=${encodeURIComponent(textoWsp)}`;
+
+    card.innerHTML = `
+      <img src="${prod.imagen}" alt="${prod.nombre}" data-nombre="${escapeHtml(prod.nombre)}" />
+      <h3>${escapeHtml(prod.nombre)}</h3>
+      <p>${escapeHtml(prod.descripcion)}</p>
+      <p class="precio">${escapeHtml(prod.precio)}</p>
+      <p><em>${escapeHtml(prod.categoria)}</em></p>
+      <a class="btn-wsp" href="${wspLink}" target="_blank" rel="noopener">
+        <button>Me interesa</button>
+      </a>
+    `;
+
+    // al clicar la imagen, abrimos lightbox con la galería del producto
+    const img = card.querySelector('img');
+    img.addEventListener('click', () => abrirLightbox(prod));
+
+    contenedor.appendChild(card);
+  });
+}
+
+/* ===== filtrado ===== */
+function filtrarProductos(){
+  const texto = busquedaInput.value.toLowerCase();
+  const cat = filtroSelect.value;
+  const filtrados = productosGlobal.filter(p =>
+    p.nombre.toLowerCase().includes(texto) &&
+    (cat === '' || p.categoria === cat)
+  );
+  mostrarProductos(filtrados);
+}
+busquedaInput.addEventListener('input', filtrarProductos);
+filtroSelect.addEventListener('change', filtrarProductos);
+
+function generarCategorias(productos){
+  const cats = [...new Set(productos.map(p=>p.categoria))];
+  cats.forEach(c => {
+    const option = document.createElement('option');
+    option.value = c;
+    option.textContent = c;
+    filtroSelect.appendChild(option);
+  });
+}
+
+/* ====== Lightbox ====== */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const thumbsContainer = document.getElementById('galeria-thumbs');
+const cerrarBtn = document.querySelector('.cerrar');
+const flechaIzq = document.getElementById('flecha-izq');
+const flechaDer = document.getElementById('flecha-der');
+
+let galeriaActual = [];
+let indexActual = 0;
+
+function abrirLightbox(producto){
+  // si producto.galeria existe y no vacío, la usamos; si no, usamos imagen principal
+  galeriaActual = Array.isArray(producto.galeria) && producto.galeria.length > 0 ? producto.galeria : [producto.imagen];
+  indexActual = 0;
+  actualizarLightbox();
+  lightbox.style.display = 'flex';
+  lightbox.setAttribute('aria-hidden','false');
+}
+
+function actualizarLightbox(){
+  lightboxImg.src = galeriaActual[indexActual];
+  // thumbs
+  thumbsContainer.innerHTML = '';
+  galeriaActual.forEach((src,i) => {
+    const t = document.createElement('img');
+    t.src = src;
+    if(i === indexActual) t.classList.add('selected');
+    t.addEventListener('click', () => {
+      indexActual = i;
+      actualizarLightbox();
+    });
+    thumbsContainer.appendChild(t);
+  });
+}
+
+cerrarBtn.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+  lightbox.setAttribute('aria-hidden','true');
+});
+flechaIzq.addEventListener('click', () => {
+  indexActual = (indexActual - 1 + galeriaActual.length) % galeriaActual.length;
+  actualizarLightbox();
+});
+flechaDer.addEventListener('click', () => {
+  indexActual = (indexActual + 1) % galeriaActual.length;
+  actualizarLightbox();
+});
+// cerrar al clickear fuera del contenido
+lightbox.addEventListener('click', (e) => {
+  if(e.target === lightbox) {
+    lightbox.style.display = 'none';
+    lightbox.setAttribute('aria-hidden','true');
+  }
+});
+
+/* ===== util ===== */
+function escapeHtml(text){
+  if(!text) return '';
+  return text
+    .replaceAll('&','&amp;')
+    .replaceAll('<','&lt;')
+    .replaceAll('>','&gt;')
+    .replaceAll('"','&quot;')
+    .replaceAll("'",'&#039;');
+}
+</script>
 
 </body>
 </html>
