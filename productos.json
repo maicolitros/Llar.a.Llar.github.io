@@ -1,10 +1,10 @@
 [
     {
-        "nombre": "Sofá cómodo",
-        "descripcion": "Perfecto para tu sala de estar.",
-        "precio": "$300",
-        "imagen": "https://via.placeholder.com/200",
-        "categoria": "Sala"
+        "nombre": "Bienvenidos a Llar a Llar, diseñada con la finalidad de ayudarte a encontrar lo que buscas",
+        "descripcion": "De momento es un modelo en desarrollo, si te gusta algun producto, contactame, tengo mas diseños y estilos",
+        "precio": "el precio puede variar depende el tamaño de los articulos",
+        "imagen": "https://scontent.fbcn7-2.fna.fbcdn.net/v/t39.30808-6/596935336_904405458606089_456510459777651955_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=n8sBfoU-U_wQ7kNvwGoB05d&_nc_oc=Adn4_kAyidZLD5iEyxYTibJlZwWjjI0dXs9oQiTVATHHGOdpae_dpwbJnaW4mAyX3-s&_nc_zt=23&_nc_ht=scontent.fbcn7-2.fna&_nc_gid=Cjgcc49ReN5xm5jOJTi45g&oh=00_AfmSGn1T6wsMXbe3U15MYSzCw3gI4H5fAnSJ_svmVcqG6Q&oe=693FCEB6",
+        "categoria": "Hogar"
     },
     {
         "nombre": "Tazón de cerámica",
@@ -21,3 +21,4 @@
         "categoria": "Dormitorio"
     }
 ]
+
