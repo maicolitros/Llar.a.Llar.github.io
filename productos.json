@@ -1,9 +1,9 @@
 [
     {
-        "nombre": "Sofá cómodo",
-        "descripcion": "Perfecto para tu sala de estar.",
-        "precio": "$300",
-        "imagen": "https://via.placeholder.com/200",
+        "nombre": "Armario Pequeño 200x100x50",
+        "descripcion": "Ideal para habitaciones pequeñas.",
+        "precio": "185.00€",
+        "imagen": "https://th.bing.com/th?id=OPEC.PAjQXLDWC%2f9brA474C474&w=160&h=220&c=17&pid=21.1&ucfimg=1",
         "categoria": "Sala"
     },
     {
@@ -21,3 +21,4 @@
         "categoria": "Dormitorio"
     }
 ]
+
