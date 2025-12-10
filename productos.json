@@ -17,7 +17,7 @@
         "nombre": "Armario grande 200x200x50cm",
         "descripcion": "Amplio y elegante, le dara vida a tu habitacion.",
         "precio": "270.00€",
-        "imagenes": "https://scontent.fbcn7-3.fna.fbcdn.net/v/t39.30808-6/597959685_904109075302394_4755427816773187267_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=MrNeR0RmfC8Q7kNvwEJqoQe&_nc_oc=AdkMMHMWBvusQN3k0Rmjnxt7PPPGlsNm8hxYaBH-O83wxl9aWZOFvrkM9cS80_2Uo6c&_nc_zt=23&_nc_ht=scontent.fbcn7-3.fna&_nc_gid=Pg9rdnYfyiWsp62ARyRUaA&oh=00_AfkXpNq-A3G_2KrRGCzHeDWN0OtRgCztr8bInTZmVLgTTg&oe=693FA9F4",     
+        "imagen": "https://scontent.fbcn7-3.fna.fbcdn.net/v/t39.30808-6/597959685_904109075302394_4755427816773187267_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=MrNeR0RmfC8Q7kNvwEJqoQe&_nc_oc=AdkMMHMWBvusQN3k0Rmjnxt7PPPGlsNm8hxYaBH-O83wxl9aWZOFvrkM9cS80_2Uo6c&_nc_zt=23&_nc_ht=scontent.fbcn7-3.fna&_nc_gid=Pg9rdnYfyiWsp62ARyRUaA&oh=00_AfkXpNq-A3G_2KrRGCzHeDWN0OtRgCztr8bInTZmVLgTTg&oe=693FA9F4",     
         "categoria": "Armario"
     },
     {
@@ -35,6 +35,7 @@
         "categoria": "Dormitorio"
     }
 ]
+
 
 
 
