@@ -22,7 +22,7 @@
     },
     {
         "nombre": "PC Gamer Completa (64GB+Grafica RX 570 series",
-        "descripcion": "PC gamer potente para correr los juegos actuales sin problema, con monitor 24" teclado y mouse.",
+        "descripcion": "PC gamer potente para correr los juegos actuales sin problema, con monitor 24 teclado y mouse",
         "precio": "350.00€",
         "imagen": "https://scontent.fbcn7-2.fna.fbcdn.net/v/t45.5328-4/587245111_857232603468265_5077297819934401363_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=247b10&_nc_ohc=ZDJfAL6CcyEQ7kNvwHH2ky1&_nc_oc=AdlubL75SzBpvY2_g_jciwGAv2HezNhneccDaGbYggwjpSKJ6sGRtkqkYx6ESLPV3PA&_nc_zt=23&_nc_ht=scontent.fbcn7-2.fna&_nc_gid=6-r3KJqIk_RutoP34vcfGA&oh=00_AfmC1cVRneadmdtfAyzPUIsf7x9Gy_hng3FbWpreQYPhKA&oe=693F28BC",
         "categoria": "Electronica"
@@ -35,6 +35,7 @@
         "categoria": "Dormitorio"
     }
 ]
+
 
 
 
