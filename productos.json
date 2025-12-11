@@ -15,11 +15,33 @@
     },
     {
         "nombre": "Canapes de madera estilo Dubai 90x190cm",
-        "descripcion": "Elegante, bisagras de calidad, tejidos 3D, con gran capacidad de almacen",
+        "descripcion": "Elegante, bisagras de calidad, tejidos 3D, gran capacidad de almacen",
         "precio": "170.00€",
         "imagen": "https://scontent.fbcn7-3.fna.fbcdn.net/v/t39.30808-6/594872785_904113868635248_2731754222289943570_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=AvV1PpLisM8Q7kNvwFgggPy&_nc_oc=AdlioSTQv3sp_zKGIM0BqUqEmFoTMlOj1Si2I3rM-YlZfZsI3RHya6rQcFlTQr0YeyA&_nc_zt=23&_nc_ht=scontent.fbcn7-3.fna&_nc_gid=Htyyl43EyOyMl_qTumEO-w&oh=00_AfmOr5vJjR4SsEp0bTgeQkltSy4ALFsWyCzF5hVbO5OoYw&oe=693FCE95",
         "categoria": "Dormitorio"
     }
+     {
+        "nombre": "PC gamer 64GB Ram + Grafica RX 570 series",
+        "descripcion": "Lista para correr los juegos actuales del mercado trae fuente de 700w 500gb almacenamieto,incluye monitor de 24pulgadas, teclado, mouse,",
+        "precio": "350.00€",
+        "imagen": "https://scontent.fbcn7-2.fna.fbcdn.net/v/t45.5328-4/587245111_857232603468265_5077297819934401363_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=247b10&_nc_ohc=XfvFGiNnR6wQ7kNvwHz6xOO&_nc_oc=Adk28juuZCexCa9WqG2X6h-ZquYwzgodANW6sF-5_vK-eGMD0jAQ1aKnaw0DUqMZXf4&_nc_zt=23&_nc_ht=scontent.fbcn7-2.fna&_nc_gid=QQXsj02bQDb9Ubk3MNrCEA&oh=00_AfmsaeTjbNK9Q-ECgneCape3w_SBOyHZNYzW5nuL2MxTBg&oe=693FD17C",
+        "categoria": "Electronica"
+    }
+     {
+        "nombre": "",
+        "descripcion": "",
+        "precio": "",
+        "imagen": "",
+        "categoria": ""
+    }
+     {
+        "nombre": "",
+        "descripcion": "",
+        "precio": "",
+        "imagen": "",
+        "categoria": ""
+    }
 ]
+
 
 
